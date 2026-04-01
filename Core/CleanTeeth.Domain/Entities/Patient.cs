@@ -1,4 +1,5 @@
 using CleanTeeth.Domain.Validations;
+using CleanTeeth.Domain.ValueObjects;
 
 namespace CleanTeeth.Domain.Entities;
 
@@ -10,11 +11,5 @@ public class Patient
         get;
         init => field = EnsureDomainRule.Ensure(value, ValidationRules.IsRequired, "The name is required");
     }
-    public required string Email
-    {
-        get;
-        init => field = EnsureDomainRule
-                        .Ensure(value, ValidationRules.IsRequired, "The email is required")
-                        .Ensure(ValidationRules.IsEmail, "The email is invalid");
-    }
+    public required Email Email { get; init; }
 }
