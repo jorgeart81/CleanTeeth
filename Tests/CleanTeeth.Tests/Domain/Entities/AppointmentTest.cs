@@ -48,4 +48,66 @@ public class AppointmentTest
             };
         });
     }
+
+    [TestMethod]
+    public void Cancel_SheduledAppointment_ChangeStatusCanceled()
+    {
+        var appointment = new Appointment
+        {
+            PatientId = _patientId,
+            DentistId = _dentistId,
+            ConsultingRoomId = _consultingRoomId,
+            TimeInterval = _timeInterval
+        };
+
+        appointment.Cancel();
+
+        Assert.AreEqual(AppointmentStatus.Canceled, appointment.Status);
+    }
+
+    [TestMethod]
+    public void Cancel_WhenAppointmentIsNotYetScheduled_ThrowsDomainException()
+    {
+        var appointment = new Appointment
+        {
+            PatientId = _patientId,
+            DentistId = _dentistId,
+            ConsultingRoomId = _consultingRoomId,
+            TimeInterval = _timeInterval
+        };
+        appointment.Cancel();
+
+        Assert.Throws<BusinessRuleException>(() => appointment.Cancel());
+    }
+
+    [TestMethod]
+    public void Complete_SheduledAppointment_ChangeStatusCompleted()
+    {
+        var appointment = new Appointment
+        {
+            PatientId = _patientId,
+            DentistId = _dentistId,
+            ConsultingRoomId = _consultingRoomId,
+            TimeInterval = _timeInterval
+        };
+
+        appointment.Complete();
+
+        Assert.AreEqual(AppointmentStatus.Completed, appointment.Status);
+    }
+
+    [TestMethod]
+    public void Complite_WhenAppointmentIsNotYetScheduled_ThrowsDomainException()
+    {
+        var appointment = new Appointment
+        {
+            PatientId = _patientId,
+            DentistId = _dentistId,
+            ConsultingRoomId = _consultingRoomId,
+            TimeInterval = _timeInterval
+        };
+        appointment.Cancel();
+
+        Assert.Throws<BusinessRuleException>(() => appointment.Complete());
+    }
 }
