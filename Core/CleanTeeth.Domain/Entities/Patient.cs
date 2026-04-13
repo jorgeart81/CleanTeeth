@@ -11,5 +11,9 @@ public class Patient
         get;
         init => field = EnsureDomainRule.Ensure(value, ValidationRules.IsRequired, "The name is required");
     }
-    public required Email Email { get; init; }
+    public required Email Email
+    {
+        get;
+        init => field = EnsureDomainRule.Ensure(value, v => v is not null, "The email is required");
+    }
 }
