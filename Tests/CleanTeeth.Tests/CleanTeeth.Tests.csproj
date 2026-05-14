@@ -22,7 +22,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Application\Utilities\" />
+    <Folder Include="Application\Utilities\Mediator\" />
     <Folder Include="Domain/ValueObjects/" />
+    <Folder Include="Domain\Mediator\" />
   </ItemGroup>
 
 </Project>
