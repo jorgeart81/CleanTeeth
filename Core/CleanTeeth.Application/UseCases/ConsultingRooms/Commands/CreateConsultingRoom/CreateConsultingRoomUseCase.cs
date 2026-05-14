@@ -1,6 +1,7 @@
 using CleanTeeth.Application.Contracts.Persistence;
 using CleanTeeth.Application.Contracts.Repositories;
 using CleanTeeth.Application.Exceptions;
+using CleanTeeth.Application.Utilities.Mediator;
 using CleanTeeth.Domain.Entities;
 using FluentValidation;
 
@@ -10,6 +11,7 @@ public class CreateConsultingRoomUseCase(
     IConsultingRoomRepository repository,
     IUnitOfWork unitOfWork,
     IValidator<CreateConsultingRoomCommand> validator)
+    : IRequestHandler<CreateConsultingRoomCommand, Guid>
 {
     public async Task<Guid> Handle(CreateConsultingRoomCommand command)
     {
