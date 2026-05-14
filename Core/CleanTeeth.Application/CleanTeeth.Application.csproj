@@ -11,6 +11,8 @@
     <Folder Include="Contracts/Repositories/" />
     <Folder Include="Contracts\Persistence\" />
     <Folder Include="UseCases/ConsultingRooms/" />
+    <Folder Include="Utilities\" />
+    <Folder Include="Utilities\Mediator\" />
   </ItemGroup>
 
   <ItemGroup>
