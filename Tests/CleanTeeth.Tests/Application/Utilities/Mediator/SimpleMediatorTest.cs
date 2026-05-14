@@ -1,4 +1,5 @@
 using System;
+using CleanTeeth.Application.Exceptions;
 using CleanTeeth.Application.Utilities.Mediator;
 using NSubstitute;
 
@@ -32,5 +33,20 @@ public class SimpleMediatorTest
         var result = await mediator.Send(requestMock);
 
         await requestHandlerMock.Received(1).Handle(requestMock);
+    }
+
+    [TestMethod]
+    public async Task Send_NoRegisteredHandler_ThrowsException()
+    {
+        var requestMock = new MockRequest();
+        var requestHandlerMock = Substitute.For<IRequestHandler<MockRequest, string>>();
+        var serviceProvider = Substitute.For<IServiceProvider>();
+
+        var mediator = new SimpleMediator(serviceProvider);
+
+        await Assert.ThrowsAsync<MediatorException>(async () =>
+        {
+            await mediator.Send(requestMock);
+        });
     }
 }
