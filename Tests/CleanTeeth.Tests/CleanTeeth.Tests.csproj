@@ -9,10 +9,12 @@
 
   <ItemGroup>
     <PackageReference Include="MSTest" Version="4.0.1" />
+    <PackageReference Include="NSubstitute" Version="5.3.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="../../Core/CleanTeeth.Domain/CleanTeeth.Domain.csproj" />
+    <ProjectReference Include="..\..\Core\CleanTeeth.Application\CleanTeeth.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
