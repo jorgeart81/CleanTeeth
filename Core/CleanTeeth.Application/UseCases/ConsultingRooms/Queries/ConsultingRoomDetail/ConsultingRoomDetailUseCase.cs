@@ -13,6 +13,6 @@ public class ConsultingRoomDetailUseCase(IConsultingRoomRepository repository)
         ConsultingRoom consultingRoom = await repository.GetById(request.Id)
             ?? throw new NotFoundExcepetion();
 
-        return new ConsultingRoomDetailDTO(consultingRoom.Id, consultingRoom.Name);
+        return consultingRoom.ToDTO();
     }
 }
