@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\CleanTeeth.Application\CleanTeeth.Application.csproj" />
     <ProjectReference Include="..\..\Core\CleanTeeth.Domain\CleanTeeth.Domain.csproj" />
   </ItemGroup>
 

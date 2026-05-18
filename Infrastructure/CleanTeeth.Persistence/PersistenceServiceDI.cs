@@ -1,3 +1,5 @@
+using CleanTeeth.Application.Contracts.Repositories;
+using CleanTeeth.Persistence.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,6 +13,8 @@ public static class PersistenceServiceDI
         {
             services.AddDbContext<CleanTeethDBContext>(options =>
                 options.UseNpgsql("name=CleanTeethConnectionString"));
+
+            services.AddScoped<IConsultingRoomRepository, ConsultingRoomRepository>();
 
             return services;
         }
