@@ -13,5 +13,12 @@ public class CleanTeethDBContext : DbContext
     {
     }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(CleanTeethDBContext).Assembly);
+    }
+
     public DbSet<ConsultingRoom> MyProperty { get; set; }
 }
