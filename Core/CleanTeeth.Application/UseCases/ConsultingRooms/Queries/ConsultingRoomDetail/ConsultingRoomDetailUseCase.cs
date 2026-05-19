@@ -11,7 +11,7 @@ public class ConsultingRoomDetailUseCase(IConsultingRoomRepository repository)
     public async Task<ConsultingRoomDetailDTO> Handle(ConsultingRoomDetailQuery request)
     {
         ConsultingRoom consultingRoom = await repository.GetById(request.Id)
-            ?? throw new NotFoundExcepetion();
+            ?? throw new NotFoundException();
 
         return consultingRoom.ToDTO();
     }

@@ -51,7 +51,7 @@ public class ConsultingRoomDetailUseCaseTest
 
         repository.GetById(id).ReturnsNull();
 
-        await Assert.ThrowsAsync<NotFoundExcepetion>(async () =>
+        await Assert.ThrowsAsync<NotFoundException>(async () =>
      {
          await useCase.Handle(query);
      });

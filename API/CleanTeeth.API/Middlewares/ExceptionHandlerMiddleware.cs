@@ -14,7 +14,6 @@ internal class ExceptionHandlerMiddleware(RequestDelegate next)
         }
         catch (Exception ex)
         {
-
             await HandleException(context, ex);
         }
     }
@@ -27,7 +26,7 @@ internal class ExceptionHandlerMiddleware(RequestDelegate next)
 
         switch (exception)
         {
-            case NotFoundExcepetion:
+            case NotFoundException:
                 httpStatusCode = HttpStatusCode.NotFound;
                 break;
             case ApplicationValidationException validationException:
