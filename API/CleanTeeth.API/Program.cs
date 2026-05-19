@@ -1,4 +1,5 @@
 using CleanTeeth.API.Endpoints;
+using CleanTeeth.API.Middlewares;
 using CleanTeeth.Application;
 using CleanTeeth.Persistence;
 
@@ -18,6 +19,8 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 #region Middlewares
+app.UseErrorExceptionHandler();
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
