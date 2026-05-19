@@ -20,5 +20,5 @@ public class CleanTeethDBContext : DbContext
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(CleanTeethDBContext).Assembly);
     }
 
-    public DbSet<ConsultingRoom> MyProperty { get; set; }
+    public DbSet<ConsultingRoom> ConsultingRooms { get; set; }
 }
