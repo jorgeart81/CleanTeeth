@@ -21,6 +21,11 @@ var app = builder.Build();
 #region Middlewares
 app.UseErrorExceptionHandler();
 
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+}
+
 #endregion
 
 #region Route endpoints
